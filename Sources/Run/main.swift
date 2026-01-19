@@ -3,8 +3,7 @@ try MyBlog().publish(
         .addMarkdownFiles(),
         .copyResources(),
         .generateHTML(
-            withTheme: .foundation,
-            relativePaths: true
+            withTheme: .foundation
         ),
         .generateRSSFeed(including: [.posts]),
         .generateSiteMap()
