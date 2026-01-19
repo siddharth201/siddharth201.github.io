@@ -2,9 +2,12 @@ try MyBlog().publish(
     using: [
         .addMarkdownFiles(),
         .copyResources(),
-        .replacePathsWithRelativePaths(),
-        .generateHTML(withTheme: .foundation),
+        .generateHTML(
+            withTheme: .foundation,
+            relativePaths: true
+        ),
         .generateRSSFeed(including: [.posts]),
         .generateSiteMap()
     ]
 )
+
