@@ -1,0 +1,29 @@
+
+name: Deploy Blog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Swift
+        uses: fwal/setup-swift@v3
+        with:
+          swift-version: '5.7'
+
+      - name: Build and Generate Site
+        run: swift run Run
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./PublishOutput

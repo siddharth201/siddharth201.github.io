@@ -1,0 +1,13 @@
+# Swift build artifacts
+.build/
+
+# Publish output (generated)
+Output/
+.publish/
+
+# macOS
+.DS_Store
+
+# Xcode (if ever opened)
+*.xcodeproj
+*.xcworkspace
