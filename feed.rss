@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift Interview Notes</title><description>My personal Swift &amp; iOS interview preparation notes</description><link>https://siddharth201.github.io/my-swift-blog</link><language>en</language><lastBuildDate>Mon, 19 Jan 2026 18:32:03 +0000</lastBuildDate><pubDate>Mon, 19 Jan 2026 18:32:03 +0000</pubDate><ttl>250</ttl><atom:link href="https://siddharth201.github.io/my-swift-blog/feed.rss" rel="self" type="application/rss+xml"/><item><guid isPermaLink="true">https://siddharth201.github.io/my-swift-blog/posts/2026-01-19-serial-vs-concurrent</guid><title>Serial vs Concurrent Queues</title><description></description><link>https://siddharth201.github.io/my-swift-blog/posts/2026-01-19-serial-vs-concurrent</link><pubDate>Mon, 19 Jan 2026 18:31:10 +0000</pubDate><content:encoded><![CDATA[<p>Title: Serial vs Concurrent Queues Date: 2026-01-19 Tags: Swift, Concurrency, Interview Summary: Clear explanation of serial and concurrent queues with examples.</p><h1>Serial vs Concurrent Queues</h1><p>This note is part of my interview preparation.</p><h2>What is a Serial Queue?</h2><p>A <strong>serial queue</strong> executes one task at a time, in FIFO order.</p><pre><code class="language-swift">let serialQueue = DispatchQueue(label: "com.example.serial")
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift Interview Notes</title><description>My personal Swift &amp; iOS interview preparation notes</description><link>https://siddharth201.github.io/my-swift-blog</link><language>en</language><lastBuildDate>Mon, 19 Jan 2026 18:47:06 +0000</lastBuildDate><pubDate>Mon, 19 Jan 2026 18:47:06 +0000</pubDate><ttl>250</ttl><atom:link href="https://siddharth201.github.io/my-swift-blog/feed.rss" rel="self" type="application/rss+xml"/><item><guid isPermaLink="true">https://siddharth201.github.io/my-swift-blog/posts/2026-01-19-serial-vs-concurrent</guid><title>Serial vs Concurrent Queues</title><description></description><link>https://siddharth201.github.io/my-swift-blog/posts/2026-01-19-serial-vs-concurrent</link><pubDate>Mon, 19 Jan 2026 18:46:13 +0000</pubDate><content:encoded><![CDATA[<p>Title: Serial vs Concurrent Queues Date: 2026-01-19 Tags: Swift, Concurrency, Interview Summary: Clear explanation of serial and concurrent queues with examples.</p><h1>Serial vs Concurrent Queues</h1><p>This note is part of my interview preparation.</p><hr><h2>What is a Serial Queue?</h2><p>A <strong>serial queue</strong> executes one task at a time, in FIFO order.</p><pre><code class="language-swift">let serialQueue = DispatchQueue(label: "com.example.serial")
 
 serialQueue.async {
     print("Task 1")
@@ -8,47 +8,4 @@ serialQueue.async {
     print("Task 2")
 }
 
-Key points
-
-Only one task runs at a time
-
-Order is preserved
-
-Thread is NOT guaranteed to be the same
-
-What is a Concurrent Queue?
-
-A concurrent queue can execute multiple tasks simultaneously.
-
-DispatchQueue.global().async {
-    print("Task A")
-}
-
-DispatchQueue.global().async {
-    print("Task B")
-}
-
-Key points
-
-Tasks may run in parallel
-
-Order of completion is NOT guaranteed
-
-Execution depends on system scheduler
-
-Interview Answer (Short)
-
-Serial queues execute one task at a time, while concurrent queues allow multiple tasks to execute simultaneously. Serial queues guarantee order, concurrent queues optimize performance.
-
-Personal Notes
-
-Main queue is serial
-
-Serial ≠ main thread
-
-Concurrent ≠ parallel always
-
-
-
-
-</code></pre>]]></content:encoded></item></channel></rss>
+</code></pre><p>##Key points</p><ul><li>Only one task runs at a time</li><li>Order is preserved</li><li>Thread is not guaranteed to be the same</li></ul>]]></content:encoded></item></channel></rss>
