@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift Interview Notes</title><description>My personal Swift &amp; iOS interview preparation notes</description><link>https://siddharth201.github.io</link><language>en</language><lastBuildDate>Tue, 20 Jan 2026 15:41:01 +0000</lastBuildDate><pubDate>Tue, 20 Jan 2026 15:41:01 +0000</pubDate><ttl>250</ttl><atom:link href="https://siddharth201.github.io/feed.rss" rel="self" type="application/rss+xml"/><item><guid isPermaLink="true">https://siddharth201.github.io/posts/2026-01-20-assert-method-list</guid><title>List of XCTest assertion methods</title><description></description><link>https://siddharth201.github.io/posts/2026-01-20-assert-method-list</link><pubDate>Tue, 20 Jan 2026 15:40:02 +0000</pubDate><content:encoded><![CDATA[<p>Title: List of XCTest assertion methods Date: 20126-01-20 Tags: Swift, iOS, Interview Summary: One-line takeaway.</p><h1>List of XCTest assertion methods</h1><hr><p>Here is a <strong>complete, clean, interview-ready list of XCTest assertion methods</strong>, grouped logically, with <strong>what they do and when to use them</strong>.</p><p>This is exactly the list you should <strong>know by heart</strong> for unit testing in Swift.</p><hr><h1>✅ Boolean Assertions</h1><p>Used to assert true/false conditions.</p><pre><code class="language-swift">
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Swift Interview Notes</title><description>My personal Swift &amp; iOS interview preparation notes</description><link>https://siddharth201.github.io</link><language>en</language><lastBuildDate>Tue, 20 Jan 2026 16:49:23 +0000</lastBuildDate><pubDate>Tue, 20 Jan 2026 16:49:23 +0000</pubDate><ttl>250</ttl><atom:link href="https://siddharth201.github.io/feed.rss" rel="self" type="application/rss+xml"/><item><guid isPermaLink="true">https://siddharth201.github.io/posts/2026-01-20-assert-method-list</guid><title>List of XCTest assertion methods</title><description></description><link>https://siddharth201.github.io/posts/2026-01-20-assert-method-list</link><pubDate>Tue, 20 Jan 2026 16:48:34 +0000</pubDate><content:encoded><![CDATA[<p>Title: List of XCTest assertion methods Date: 20126-01-20 Tags: Swift, iOS, Interview Summary: One-line takeaway.</p><h1>List of XCTest assertion methods</h1><hr><p>Here is a <strong>complete, clean, interview-ready list of XCTest assertion methods</strong>, grouped logically, with <strong>what they do and when to use them</strong>.</p><p>This is exactly the list you should <strong>know by heart</strong> for unit testing in Swift.</p><hr><h2>✅ Boolean Assertions</h2><p>Used to assert true/false conditions.</p><pre><code class="language-swift">
 XCTAssertTrue(_ expression: Bool, _ message: String = "")
 XCTAssertFalse(_ expression: Bool, _ message: String = "")
 
@@ -6,48 +6,84 @@ XCTAssertFalse(_ expression: Bool, _ message: String = "")
 XCTAssertTrue(isLoggedIn, "User should be logged in")
 XCTAssertFalse(hasError, "Error should be false")
 
-</code></pre><hr><h1>✅ Nil / Optional Assertions</h1><p>Used for optional values.</p><pre><code class="language-swift">XCTAssertNil(_ expression: Any?, _ message: String = "")
+</code></pre><hr><h2>✅ Nil / Optional Assertions</h2><p>Used for optional values.</p><pre><code class="language-swift">
+XCTAssertNil(_ expression: Any?, _ message: String = "")
 XCTAssertNotNil(_ expression: Any?, _ message: String = "")
-</code></pre><p>Example:</p><pre><code class="language-swift">XCTAssertNotNil(user, "User must not be nil")
+
+</code></pre><p><strong>Example:</strong></p><pre><code class="language-swift">
+XCTAssertNotNil(user, "User must not be nil")
 XCTAssertNil(error, "Error should be nil")
-</code></pre><hr><h1>✅ Equality / Inequality Assertions</h1><p>Used to compare values.</p><pre><code class="language-swift">XCTAssertEqual&lt;T: Equatable&gt;(_ expression1: T, _ expression2: T, _ message: String = "")
+
+</code></pre><hr><h1>✅ Equality / Inequality Assertions</h1><p>Used to compare values.</p><pre><code class="language-swift">
+XCTAssertEqual&lt;T: Equatable&gt;(_ expression1: T, _ expression2: T, _ message: String = "")
 XCTAssertNotEqual&lt;T: Equatable&gt;(_ expression1: T, _ expression2: T, _ message: String = "")
-</code></pre><p>Example:</p><pre><code class="language-swift">XCTAssertEqual(total, 100, "Total should be 100")
+
+</code></pre><p><strong>Example:</strong></p><pre><code class="language-swift">
+XCTAssertEqual(total, 100, "Total should be 100")
 XCTAssertNotEqual(status, .failed)
-</code></pre><hr><h1>✅ Identity Assertions (Reference Types)</h1><p>Used to compare object identity (memory reference).</p><pre><code class="language-swift">XCTAssertIdentical(_ expression1: AnyObject?, _ expression2: AnyObject?, _ message: String = "")
+
+</code></pre><hr><h1>✅ Identity Assertions (Reference Types)</h1><p>Used to compare object identity (memory reference).</p><pre><code class="language-swift">
+XCTAssertIdentical(_ expression1: AnyObject?, _ expression2: AnyObject?, _ message: String = "")
 XCTAssertNotIdentical(_ expression1: AnyObject?, _ expression2: AnyObject?, _ message: String = "")
-</code></pre><p>Example:</p><pre><code class="language-swift">XCTAssertIdentical(obj1, obj2, "Both should reference same instance")
-</code></pre><hr><h1>✅ Comparison Assertions (Comparable)</h1><p>Used for numeric / comparable comparisons.</p><pre><code class="language-swift">XCTAssertGreaterThan(_ a: T, _ b: T)
+
+</code></pre><p>Example:</p><pre><code class="language-swift">
+XCTAssertIdentical(obj1, obj2, "Both should reference same instance")
+
+</code></pre><hr><h1>✅ Comparison Assertions (Comparable)</h1><p>Used for numeric / comparable comparisons.</p><pre><code class="language-swift">
+XCTAssertGreaterThan(_ a: T, _ b: T)
 XCTAssertGreaterThanOrEqual(_ a: T, _ b: T)
 XCTAssertLessThan(_ a: T, _ b: T)
 XCTAssertLessThanOrEqual(_ a: T, _ b: T)
-</code></pre><p>Example:</p><pre><code class="language-swift">XCTAssertGreaterThan(score, 50)
+
+</code></pre><p><strong>Example:</strong></p><pre><code class="language-swift">
+XCTAssertGreaterThan(score, 50)
 XCTAssertLessThanOrEqual(age, 60)
-</code></pre><hr><h1>✅ Error / Exception Assertions (VERY IMPORTANT)</h1><p>Used to test throwing functions.</p><pre><code class="language-swift">XCTAssertThrowsError(_ expression: @autoclosure () throws -&gt; T, _ message: String = "", _ errorHandler: ((Error) -&gt; Void)? = nil)
+
+</code></pre><hr><h1>✅ Error / Exception Assertions (VERY IMPORTANT)</h1><p>Used to test throwing functions.</p><pre><code class="language-swift">
+XCTAssertThrowsError(_ expression: @autoclosure () throws -&gt; T, _ message: String = "", _ errorHandler: ((Error) -&gt; Void)? = nil)
 
 XCTAssertNoThrow(_ expression: @autoclosure () throws -&gt; T, _ message: String = "")
-</code></pre><p>Example:</p><pre><code class="language-swift">XCTAssertThrowsError(try login(email: "bad", password: "123")) { error in
+
+</code></pre><p><strong>Example:</strong></p><pre><code class="language-swift">
+XCTAssertThrowsError(try login(email: "bad", password: "123")) { error in
     XCTAssertEqual(error as? LoginError, .invalidEmail)
 }
 
 XCTAssertNoThrow(try login(email: "a@b.com", password: "123456"))
-</code></pre><hr><h1>✅ Collection Assertions</h1><p>Used for arrays, sets, dictionaries.</p><pre><code class="language-swift">XCTAssertEqual(array.count, 3)
+
+</code></pre><hr><h1>✅ Collection Assertions</h1><p>Used for arrays, sets, dictionaries.</p><pre><code class="language-swift">
+XCTAssertEqual(array.count, 3)
 XCTAssertTrue(array.isEmpty)
 XCTAssertFalse(array.contains(5))
-</code></pre><p>There is <strong>no special collection-only API</strong> — use normal equality &amp; boolean assertions.</p><hr><h1>✅ Unconditional Failure</h1><p>Used to force a test failure.</p><pre><code class="language-swift">XCTFail(_ message: String = "")
-</code></pre><p>Example:</p><pre><code class="language-swift">guard let user else {
+
+</code></pre><p>There is <strong>no special collection-only API</strong> — use normal equality &amp; boolean assertions.</p><hr><h1>✅ Unconditional Failure</h1><p>Used to force a test failure.</p><pre><code class="language-swift">
+XCTFail(_ message: String = "")
+
+</code></pre><p><strong>Example:</strong></p><pre><code class="language-swift">
+guard let user else {
     XCTFail("User must not be nil")
     return
 }
-</code></pre><hr><h1>✅ Type Checking Assertions</h1><p>Used to check runtime types.</p><pre><code class="language-swift">XCTAssertTrue(value is MyType)
+
+</code></pre><hr><h1>✅ Type Checking Assertions</h1><p>Used to check runtime types.</p><pre><code class="language-swift">
+XCTAssertTrue(value is MyType)
 XCTAssertFalse(value is WrongType)
-</code></pre><p>Example:</p><pre><code class="language-swift">XCTAssertTrue(error is LoginError)
-</code></pre><hr><h1>✅ Floating-Point Accuracy Assertions</h1><p>Used when comparing <code>Double</code> / <code>Float</code>.</p><pre><code class="language-swift">XCTAssertEqual(_ a: Double, _ b: Double, accuracy: Double)
-</code></pre><p>Example:</p><pre><code class="language-swift">XCTAssertEqual(price, 9.99, accuracy: 0.01)
-</code></pre><hr><h1>✅ Async Assertions (Expectations)</h1><p>Used for async code.</p><pre><code class="language-swift">let expectation = expectation(description: "Async task")
+
+</code></pre><p><strong>Example:</strong></p><pre><code class="language-swift">
+XCTAssertTrue(error is LoginError)
+
+</code></pre><hr><h1>✅ Floating-Point Accuracy Assertions</h1><p>Used when comparing <code>Double</code> / <code>Float</code>.</p><pre><code class="language-swift">
+XCTAssertEqual(_ a: Double, _ b: Double, accuracy: Double)
+
+</code></pre><p><strong>Example:</strong></p><pre><code class="language-swift">
+XCTAssertEqual(price, 9.99, accuracy: 0.01)
+
+</code></pre><hr><h1>✅ Async Assertions (Expectations)</h1><p>Used for async code.</p><pre><code class="language-swift">
+let expectation = expectation(description: "Async task")
 expectation.fulfill()
 waitForExpectations(timeout: 1.0)
-</code></pre><p>(You already moved past basics, but this completes the list.)</p><hr><h1>🧠 Quick Interview Cheat Sheet</h1><table><thead><tr><th>Category</th><th>Assertions</th></tr></thead><tbody><tr><td>Boolean</td><td><code>XCTAssertTrue</code>, <code>XCTAssertFalse</code></td></tr><tr><td>Optional</td><td><code>XCTAssertNil</code>, <code>XCTAssertNotNil</code></td></tr><tr><td>Equality</td><td><code>XCTAssertEqual</code>, <code>XCTAssertNotEqual</code></td></tr><tr><td>Identity</td><td><code>XCTAssertIdentical</code>, <code>XCTAssertNotIdentical</code></td></tr><tr><td>Comparison</td><td><code>XCTAssertGreaterThan</code>, <code>XCTAssertLessThan</code>, etc</td></tr><tr><td>Errors</td><td><code>XCTAssertThrowsError</code>, <code>XCTAssertNoThrow</code></td></tr><tr><td>Failure</td><td><code>XCTFail</code></td></tr></tbody></table><hr><h1>🎯 Golden Rule (Memorize This)</h1><blockquote><p>**Assertions do not throw — they abort the test. Use them to express intent, not control flow.**</p></blockquote><hr>]]></content:encoded></item><item><guid isPermaLink="true">https://siddharth201.github.io/posts/2026-01-19-serial-vs-concurrent</guid><title>Serial vs Concurrent Queues</title><description></description><link>https://siddharth201.github.io/posts/2026-01-19-serial-vs-concurrent</link><pubDate>Tue, 20 Jan 2026 15:40:02 +0000</pubDate><content:encoded><![CDATA[<p>Title: Serial vs Concurrent Queues Date: 2026-01-19 Tags: Swift, Concurrency, Interview Summary: Clear explanation of serial and concurrent queues with examples.</p><h1>Serial vs Concurrent Queues</h1><p>This note is part of my interview preparation.</p><hr><h2>What is a Serial Queue?</h2><p>A <strong>serial queue</strong> executes one task at a time, in FIFO order.</p><pre><code class="language-swift">let serialQueue = DispatchQueue(label: "com.example.serial")
+
+</code></pre><hr><h1>🧠 Quick Interview Cheat Sheet</h1><table><thead><tr><th>Category</th><th>Assertions</th></tr></thead><tbody><tr><td>Boolean</td><td><code>XCTAssertTrue</code>, <code>XCTAssertFalse</code></td></tr><tr><td>Optional</td><td><code>XCTAssertNil</code>, <code>XCTAssertNotNil</code></td></tr><tr><td>Equality</td><td><code>XCTAssertEqual</code>, <code>XCTAssertNotEqual</code></td></tr><tr><td>Identity</td><td><code>XCTAssertIdentical</code>, <code>XCTAssertNotIdentical</code></td></tr><tr><td>Comparison</td><td><code>XCTAssertGreaterThan</code>, <code>XCTAssertLessThan</code>, etc</td></tr><tr><td>Errors</td><td><code>XCTAssertThrowsError</code>, <code>XCTAssertNoThrow</code></td></tr><tr><td>Failure</td><td><code>XCTFail</code></td></tr></tbody></table><hr><h1>🎯 Golden Rule (Memorize This)</h1><blockquote><p>**Assertions do not throw — they abort the test. Use them to express intent, not control flow.**</p></blockquote><hr>]]></content:encoded></item><item><guid isPermaLink="true">https://siddharth201.github.io/posts/2026-01-19-serial-vs-concurrent</guid><title>Serial vs Concurrent Queues</title><description></description><link>https://siddharth201.github.io/posts/2026-01-19-serial-vs-concurrent</link><pubDate>Tue, 20 Jan 2026 16:48:34 +0000</pubDate><content:encoded><![CDATA[<p>Title: Serial vs Concurrent Queues Date: 2026-01-19 Tags: Swift, Concurrency, Interview Summary: Clear explanation of serial and concurrent queues with examples.</p><h1>Serial vs Concurrent Queues</h1><p>This note is part of my interview preparation.</p><hr><h2>What is a Serial Queue?</h2><p>A <strong>serial queue</strong> executes one task at a time, in FIFO order.</p><pre><code class="language-swift">let serialQueue = DispatchQueue(label: "com.example.serial")
 
 serialQueue.async {
     print("Task 1")
