@@ -14,7 +14,7 @@ This is exactly the list you should **know by heart** for unit testing in Swift.
 
 ---
 
-# ✅ Boolean Assertions
+## ✅ Boolean Assertions
 
 Used to assert true/false conditions.
 
@@ -26,7 +26,6 @@ XCTAssertFalse(_ expression: Bool, _ message: String = "")
 ```
 
 **Example:**
-
 ```swift
 
 XCTAssertTrue(isLoggedIn, "User should be logged in")
@@ -36,20 +35,23 @@ XCTAssertFalse(hasError, "Error should be false")
 
 ---
 
-# ✅ Nil / Optional Assertions
+## ✅ Nil / Optional Assertions
 
 Used for optional values.
 
 ```swift
+
 XCTAssertNil(_ expression: Any?, _ message: String = "")
 XCTAssertNotNil(_ expression: Any?, _ message: String = "")
+
 ```
 
-Example:
-
+**Example:**
 ```swift
+
 XCTAssertNotNil(user, "User must not be nil")
 XCTAssertNil(error, "Error should be nil")
+
 ```
 
 ---
@@ -59,15 +61,18 @@ XCTAssertNil(error, "Error should be nil")
 Used to compare values.
 
 ```swift
+
 XCTAssertEqual<T: Equatable>(_ expression1: T, _ expression2: T, _ message: String = "")
 XCTAssertNotEqual<T: Equatable>(_ expression1: T, _ expression2: T, _ message: String = "")
+
 ```
 
-Example:
-
+**Example:**
 ```swift
+
 XCTAssertEqual(total, 100, "Total should be 100")
 XCTAssertNotEqual(status, .failed)
+
 ```
 
 ---
@@ -77,14 +82,17 @@ XCTAssertNotEqual(status, .failed)
 Used to compare object identity (memory reference).
 
 ```swift
+
 XCTAssertIdentical(_ expression1: AnyObject?, _ expression2: AnyObject?, _ message: String = "")
 XCTAssertNotIdentical(_ expression1: AnyObject?, _ expression2: AnyObject?, _ message: String = "")
+
 ```
 
 Example:
-
 ```swift
+
 XCTAssertIdentical(obj1, obj2, "Both should reference same instance")
+
 ```
 
 ---
@@ -94,17 +102,20 @@ XCTAssertIdentical(obj1, obj2, "Both should reference same instance")
 Used for numeric / comparable comparisons.
 
 ```swift
+
 XCTAssertGreaterThan(_ a: T, _ b: T)
 XCTAssertGreaterThanOrEqual(_ a: T, _ b: T)
 XCTAssertLessThan(_ a: T, _ b: T)
 XCTAssertLessThanOrEqual(_ a: T, _ b: T)
+
 ```
 
-Example:
-
+**Example:**
 ```swift
+
 XCTAssertGreaterThan(score, 50)
 XCTAssertLessThanOrEqual(age, 60)
+
 ```
 
 ---
@@ -114,19 +125,22 @@ XCTAssertLessThanOrEqual(age, 60)
 Used to test throwing functions.
 
 ```swift
+
 XCTAssertThrowsError(_ expression: @autoclosure () throws -> T, _ message: String = "", _ errorHandler: ((Error) -> Void)? = nil)
 
 XCTAssertNoThrow(_ expression: @autoclosure () throws -> T, _ message: String = "")
+
 ```
 
-Example:
-
+**Example:**
 ```swift
+
 XCTAssertThrowsError(try login(email: "bad", password: "123")) { error in
     XCTAssertEqual(error as? LoginError, .invalidEmail)
 }
 
 XCTAssertNoThrow(try login(email: "a@b.com", password: "123456"))
+
 ```
 
 ---
@@ -136,9 +150,11 @@ XCTAssertNoThrow(try login(email: "a@b.com", password: "123456"))
 Used for arrays, sets, dictionaries.
 
 ```swift
+
 XCTAssertEqual(array.count, 3)
 XCTAssertTrue(array.isEmpty)
 XCTAssertFalse(array.contains(5))
+
 ```
 
 There is **no special collection-only API** — use normal equality & boolean assertions.
@@ -150,16 +166,19 @@ There is **no special collection-only API** — use normal equality & boolean as
 Used to force a test failure.
 
 ```swift
+
 XCTFail(_ message: String = "")
+
 ```
 
-Example:
-
+**Example:**
 ```swift
+
 guard let user else {
     XCTFail("User must not be nil")
     return
 }
+
 ```
 
 ---
@@ -169,14 +188,17 @@ guard let user else {
 Used to check runtime types.
 
 ```swift
+
 XCTAssertTrue(value is MyType)
 XCTAssertFalse(value is WrongType)
+
 ```
 
-Example:
-
+**Example:**
 ```swift
+
 XCTAssertTrue(error is LoginError)
+
 ```
 
 ---
@@ -186,13 +208,17 @@ XCTAssertTrue(error is LoginError)
 Used when comparing `Double` / `Float`.
 
 ```swift
+
 XCTAssertEqual(_ a: Double, _ b: Double, accuracy: Double)
+
 ```
 
-Example:
+**Example:**
 
 ```swift
+
 XCTAssertEqual(price, 9.99, accuracy: 0.01)
+
 ```
 
 ---
@@ -202,12 +228,12 @@ XCTAssertEqual(price, 9.99, accuracy: 0.01)
 Used for async code.
 
 ```swift
+
 let expectation = expectation(description: "Async task")
 expectation.fulfill()
 waitForExpectations(timeout: 1.0)
-```
 
-(You already moved past basics, but this completes the list.)
+```
 
 ---
 
